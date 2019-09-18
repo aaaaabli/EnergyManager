@@ -71,7 +71,14 @@
     },
     methods: {
       login() {
-        this.$router.push({ path: "/main" });
+        if (
+          this.formInline.user == "admin" &&
+          this.formInline.password == "123456"
+        ) {
+          this.$router.push({ path: "/main" });
+        } else {
+          this.$Message.error("登陆失败");
+        }
       },
       register() {
         this.$router.push({ path: "/register" });
